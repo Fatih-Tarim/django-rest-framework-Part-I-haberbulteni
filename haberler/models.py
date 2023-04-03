@@ -6,7 +6,7 @@ class Makale(models.Model):
     aciklama = models.CharField(max_length=200)
     metin = models.TextField()
     sehir = models.CharField(max_length=120)
-    yayimlanma_tarihi = models.DateField()
+    yayimlanma_tarihi = models.DateTimeField()
     aktif = models.BooleanField()
     yaratilma_tarihi=models.DateTimeField(auto_now_add=True)
     güncellenme_tarihi = models.DateTimeField(auto_now=True)
