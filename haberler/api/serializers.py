@@ -12,7 +12,7 @@ class MakaleSerializer(serializers.Serializer):
     yayimlanma_tarihi = serializers.DateTimeField()
     aktif = serializers.BooleanField()
     yaratilma_tarihi = serializers.DateTimeField(read_only=True)
-    guncelleme_tarihi = serializers.DateTimeField(read_only=True)
+    guncellenme_tarihi = serializers.DateTimeField(read_only=True)
 
     def create(self, validated_data):
         print(validated_data)
@@ -24,8 +24,10 @@ class MakaleSerializer(serializers.Serializer):
         instance.aciklama = validated_data.get('aciklama', instance.aciklama)
         instance.metin = validated_data.get('metin', instance.metin)
         instance.sehir = validated_data.get('sehir', instance.sehir)
-        instance.yayımlanma_tarihi = validated_data.get('yayımlanma_tarihi', instance.yayımlanma_tarihi)
+        instance.yayimlanma_tarihi = validated_data.get('yayimlanma_tarihi', instance.yayimlanma_tarihi)
         instance.aktif = validated_data.get('aktif', instance.aktif)
+        instance.yaratilma_tarihi = validated_data.get('yaratilma_tarihi', instance.yaratilma_tarihi)
+        instance.güncellenme_tarihi = validated_data.get('güncellenme_tarihi', instance.güncellenme_tarihi)
         instance.save()
         return instance
         
