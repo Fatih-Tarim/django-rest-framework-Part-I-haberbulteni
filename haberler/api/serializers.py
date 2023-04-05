@@ -31,5 +31,12 @@ class MakaleSerializer(serializers.Serializer):
         instance.save()
         return instance
         
+    def validate(self, data): #Object Level Validate
+        if data['baslik'] == data['aciklama']:
+            raise serializers.ValidationError('Başlık ve açıklama alanları aynı olamaz!')
+        return data
 
-    
+    def validate_baslik(self, value):
+        if len(value) < 10:
+            raise serializers.ValidationError(f'Başlık 10 karakterden küçük olamaz. Girilen değer len {len(value)} karakter')
+        return value
