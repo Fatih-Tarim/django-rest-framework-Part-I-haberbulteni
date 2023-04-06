@@ -3,7 +3,8 @@ from haberler.api import views as api_views
 
 urlpatterns = [
     path("makaleler/", api_views.MakaleListAPIView.as_view(), name='makale-listesi'),
-    path("makaleler/<int:pk>", api_views.MakaleDetailAPIView.as_view(), name='makale-detail')
+    path("makaleler/<int:pk>", api_views.MakaleDetailAPIView.as_view(), name='makale-detail'),
+    path("gazeteciler", api_views.GazeteciListAPIView.as_view(), name='gazeteci-listesi')
 ]
 
 ##### FUNCTION BASED VIEWS ######
